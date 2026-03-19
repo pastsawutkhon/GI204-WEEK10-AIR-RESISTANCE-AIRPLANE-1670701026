@@ -409,6 +409,8 @@ GameObject:
   - component: {fileID: 1011199521}
   - component: {fileID: 1011199520}
   - component: {fileID: 1011199519}
+  - component: {fileID: 1011199522}
+  - component: {fileID: 1011199523}
   m_Layer: 0
   m_Name: AirplaneRoot
   m_TagString: Untagged
@@ -424,9 +426,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011199518}
   serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Mass: 50
+  m_LinearDamping: 0.4
+  m_AngularDamping: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -440,9 +442,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &1011199520
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -484,6 +486,50 @@ Transform:
   - {fileID: 982088392}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1011199522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011199518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd467f4b29c6104aaa9d96094ca6c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirplaneFlightPhysicsSimulation
+  thrust: 0
+  LeftCoefficient: 0
+  stallAngle: 0
+  stallLiftMultiplier: 0
+  dragCoefficient: 0
+  sideDrag: 0
+  pitchPower: 0
+  yawPower: 0
+  rollPower: 0
+  turnStrength: 0
+--- !u!114 &1011199523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011199518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d68e5916370e8429a7002126fe46ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirplanePhysicsController
+  thrust: 40
+  liftCoefficient: 0.02
+  dragCoefficient: 0.02
+  sideDrag: 2
+  turnStrength: 0.5
+  stallAngle: 35
+  stallLiftMultiplier: 0.3
+  pitchPower: 15
+  rollPower: 20
+  yawPower: 15
 --- !u!1 &1288202711
 GameObject:
   m_ObjectHideFlags: 0
